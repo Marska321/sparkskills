@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* SparkSkill Colors */
+  --spark-blue: hsl(217, 91%, 60%);
+  --spark-green: hsl(158, 64%, 52%);
+  --spark-orange: hsl(38, 92%, 50%);
+  --spark-purple: hsl(258, 90%, 66%);
+  --spark-pink: hsl(328, 85%, 70%);
+  --spark-teal: hsl(189, 94%, 43%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(to bottom right, 
+      hsl(217, 100%, 97%), 
+      hsl(258, 100%, 97%), 
+      hsl(328, 100%, 97%));
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer components {
+  .spark-blue { color: var(--spark-blue); }
+  .spark-green { color: var(--spark-green); }
+  .spark-orange { color: var(--spark-orange); }
+  .spark-purple { color: var(--spark-purple); }
+  .spark-pink { color: var(--spark-pink); }
+  .spark-teal { color: var(--spark-teal); }
+
+  .bg-spark-blue { background-color: var(--spark-blue); }
+  .bg-spark-green { background-color: var(--spark-green); }
+  .bg-spark-orange { background-color: var(--spark-orange); }
+  .bg-spark-purple { background-color: var(--spark-purple); }
+  .bg-spark-pink { background-color: var(--spark-pink); }
+  .bg-spark-teal { background-color: var(--spark-teal); }
+
+  .lesson-card:hover {
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+  }
+
+  .badge-bounce {
+    animation: bounce 0.6s ease-in-out;
+  }
+
+  .progress-ring {
+    transform: rotate(-90deg);
+  }
+
+  .section-card:hover {
+    box-shadow: 0 10px 25px -5px hsl(217, 91%, 60%, 0.3);
+  }
+
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+
+  .animate-pulse-gentle {
+    animation: pulse 3s infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+}
