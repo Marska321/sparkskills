@@ -6,6 +6,9 @@
     "noEmit": false,
     "outDir": "dist/server",
     
+    /* --- FIX FOR THIS SPECIFIC BUILD ERROR --- */
+    "allowImportingTsExtensions": false,
+
     /* --- MODULE SETTINGS FOR NODE.JS --- */
     "module": "NodeNext",
     "moduleResolution": "NodeNext"
