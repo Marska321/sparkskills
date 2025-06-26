@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["server/**/*", "shared/**/*"],
+  "compilerOptions": {
+    /* --- VITAL OVERRIDES FOR THE SERVER BUILD --- */
+    "noEmit": false,
+    "outDir": "dist/server",
+    
+    /* --- MODULE SETTINGS FOR NODE.JS --- */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  }
+}
