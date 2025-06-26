@@ -1,0 +1,7 @@
+# Specifies the version of the App Hosting schema.
+specVersion: v1alpha1
+
+# Defines the runtime environment for your backend.
+run:
+  # The port your backend server listens on.
+  port: 5000
