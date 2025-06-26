@@ -4,7 +4,7 @@ A gamified, kid-friendly web application teaching entrepreneurial skills through
 
 ## Features
 
-- **12 Interactive Lessons**: Complete curriculum from idea discovery to business implementation
+- **12 Interactive Lessons**: Complete curriculum from idea discovery to business implementation 
 - **Gamified Learning**: Badge system with unique rewards for each lesson completion
 - **Kid-Friendly Design**: Colorful gradients, emojis, and engaging interface
 - **Progress Tracking**: Real-time completion status and streak management
