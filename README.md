@@ -129,7 +129,7 @@ sparkskill/
 
 ## API Endpoints
 
-- `GET /api/lessons` - Get all lessons
+- `GET /api/lessons` - Get all lessons 
 - `GET /api/lessons/:id` - Get specific lesson
 - `GET /api/progress` - Get user progress
 - `POST /api/progress/:lessonId/section/:sectionId` - Update section progress
