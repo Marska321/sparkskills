@@ -1,14 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import { db } from './db';
-import { users }_ from './db/schema';_
+import { users } from './db/schema'; // <--- THIS LINE IS NOW FIXED
 import { eq } from 'drizzle-orm';
-import { onRequest } from "firebase-functions/v2/https"; // <--- ADD THIS IMPORT
+import { onRequest } from "firebase-functions/v2/https";
 
 const app = express();
 
 // Middleware
-app.use(cors()); // Use this for local development if your client and server are on different ports
+app.use(cors());
 app.use(express.json());
 
 // --- User Routes ---
@@ -34,12 +34,10 @@ app.post('/api/users/signup', async (req, res) => {
     }
 
     // You should hash the password here before saving
-    // For now, saving directly for simplicity
     const newUser = await db.insert(users).values({ username, email, password }).returning();
     res.status(201).json(newUser[0]);
   } catch (error: any) {
-    // Check for unique constraint violation
-    if (error.code === '23505') { // PostgreSQL unique violation error code
+    if (error.code === '23505') {
         return res.status(409).json({ error: 'Email or username already exists.' });
     }
     console.error('Error creating user:', error);
@@ -61,13 +59,11 @@ app.post('/api/users/login', async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        // IMPORTANT: You must compare the hashed password here.
-        // This is a placeholder and is NOT secure.
+        // IMPORTANT: You must compare a hashed password here.
         if (user[0].password !== password) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // Don't send the password back to the client
         const { password: _, ...userResponse } = user[0];
         res.json({ message: 'Login successful', user: userResponse });
 
@@ -77,14 +73,5 @@ app.post('/api/users/login', async (req, res) => {
     }
 });
 
-
-// --- REMOVED THE OLD SERVER LISTENING CODE ---
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//  console.log(`Server is running on port ${PORT}`);
-// });
-// --------------------------------------------
-
-
-// --- ADD THIS LINE TO EXPORT THE APP AS A CLOUD FUNCTION ---
-export const api = onRequest(app); // Changed name to 'api' to match standard practice
+// Export your Express app to be used by Cloud Functions
+export const api = onRequest(app);
